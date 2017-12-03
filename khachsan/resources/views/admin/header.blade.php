@@ -23,15 +23,15 @@
             <ul class="nav" id="side-menu">
 
                 <li>
-                    <a href="http://localhost:8000/roommap"><i class="fa fa-home"></i> Sơ đồ phòng</a>
+                    <a href="http://localhost:8000/roommap"><i class="fa fa-dashboard fa-fw"></i> Sơ đồ phòng</a>
                 </li>
 
                 <li>
-                    <a href="http://localhost:8000/admin"><i class="fa fa-users"></i> Người dùng</a>
+                    <a href="http://localhost:8000/admin"><i class="fa fa-dashboard fa-fw"></i> Người dùng</a>
                 </li>
 
                 <li>
-                    <a href="http://localhost:8000/checkoutpolicy"><i class="glyphicon glyphicon-log-out"></i> Chính sách trả phòng</a>
+                    <a href="http://localhost:8000/checkoutpolicy"><i class="fa fa-dashboard fa-fw"></i> Chính sách trả phòng</a>
                 </li>
 
                 <li>
@@ -53,7 +53,7 @@
 
 
                 <li>
-                    <a href="#"><i class="glyphicon glyphicon-home"></i> Quản lý phòng<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý phòng<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="http://localhost:8000/room">Phòng</a>
@@ -72,7 +72,7 @@
 
 
                 <li>
-                    <a href="#"><i class="glyphicon glyphicon-list-alt"></i> Quản lý hóa đơn<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý hóa đơn<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="http://localhost:8000/bill">Hóa đơn</a>
@@ -98,7 +98,7 @@
                 
 
                 <li>
-                    <a href="#"><i class="glyphicon glyphicon-log-in"></i> Quản lý nhận phòng<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý nhận phòng<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="http://localhost:8000/customer"> Khách hàng</a>

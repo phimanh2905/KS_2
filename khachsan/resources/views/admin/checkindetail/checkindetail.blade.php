@@ -40,8 +40,8 @@
                                 @foreach($checkindetails as $checkindetail)
                                 <tr class="checkindetail{{$checkindetail->id}}" >
                                     <td>{{$checkindetail->id}}</td>
-                                    <td>{{$checkindetail->MaPhong}}</td>
-                                    <td>{{$checkindetail->HoTenKhachHang}}</td>
+                                    <td>{{$checkindetail->phong->TenPhong}}</td>
+                                    <td>{{$checkindetail->user->name}}</td>
                                     <td>{{$checkindetail->CMND}}</td>
                                     <td>{{$checkindetail->NgayNhan}}</td>
                                     <td>{{$checkindetail->NgayTraDuKien}}</td>

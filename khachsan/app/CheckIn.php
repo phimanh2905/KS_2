@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\PhieuThuePhong;
+use App\RoomReservationDetail;
 use App\ServiceUsageList;
 use App\Customer;
 use App\Bill;
@@ -15,7 +15,7 @@ class CheckIn extends Model
     protected $fillable = ['MaPhieuThue','MaKhachHang'];
     // protected $hidden = ['',''];
     public function phieuThuePhong() {
-        return $this->belongsTo(PhieuThuePhong::class, 'MaPhieuThue');
+        return $this->belongsTo(RoomReservationDetail::class, 'MaPhieuThue');
     }
     public function danhSachSuDungDichVus() {
         return $this->hasMany(ServiceUsageList::class, 'MaNhanPhong');

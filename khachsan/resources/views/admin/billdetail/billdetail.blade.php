@@ -295,100 +295,91 @@
                 <h4 class="modal-title" id="myModalLabel">Update</h4>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    {!! Form::open(['class' => 'form-horizontal', 'method' => 'POST', 'route' => ['billdetail.update',$billdetail->id]]) !!}
-                    <div>
-                        <label for="label">ID</label>
-                        <input type="text" name="id" class="form-control" id="id">
-                    </div>
-                    {!! Form::close() !!}
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div>
-                            <label for="label">Mã phòng</label>
-                            <!-- <input type="text" name="MaPhong" class="form-control" id="MaPhong"> -->
-                            <select class="form-control" id="MaPhong" name="MaPhong">
-                                <option value="">Select</option>
-                                @foreach($tenPhong as $tp)
-                                <option value="{{ $tp->id }}">{{ $tp->TenPhong }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div>
-                            <label for="label">Mã sử dụng dịch vụ</label>
-                            <!-- <input type="text" name="MaSuDungDichVu" class="form-control" id="MaSuDungDichVu"> -->
-                            <select class="form-control" id="MaSuDungDichVu" name="MaSuDungDichVu">
-                                <option value="">Select</option>
-                                @foreach($suDungDichVu as $sddv)
-                                <option value="{{ $sddv->id }}">{{ $sddv->id }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div>
-                            <label for="label">Mã chính sách</label>
-                            <!-- <input type="text" name="MaChinhSach" class="form-control" id="MaChinhSach"> -->
-                            <select class="form-control" id="MaChinhSach" name="MaChinhSach">
-                                <option value="">Select</option>
-                                @foreach($chinhSach as $cs)
-                                <option value="{{ $cs->id }}">{{ $cs->ThoiGianQuyDinh }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div>
-                            <label for="label">Phụ thu</label>
-                            <input type="text" name="PhuThu" class="form-control" id="PhuThu">
-                        </div>
-                        <div>
-                            <label for="label">Tiền phòng</label>
-
-                            <div class="form-group input-group" >
-                                <span class="input-group-addon">VND</span>
-                                <input type="text" name="TienPhong" class="form-control" id="TienPhong">
-                                <span class="input-group-addon">.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div>
-                            <label for="label">Tiền dịch vụ</label>
-
-                            <div class="form-group input-group" >
-                                <span class="input-group-addon">VND</span>
-                                <input type="text" name="TienDichVu" class="form-control" id="TienDichVu">
-                                <span class="input-group-addon">.00</span>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="label">Giảm giá khách hàng</label>
-                            <input type="text" name="GiamGiaKhachHang" class="form-control" id="GiamGiaKhachHang">
-                        </div>
-                        <div>
-                            <label for="label">Hình thức thanh toán</label>
-                            <input type="text" name="HinhThucThanhToan" class="form-control" id="HinhThucThanhToan">
-                        </div>
-                        <div>
-                            <label for="label">Số ngày</label>
-                            <input type="text" name="SoNgay" class="form-control" id="SoNgay">
-                        </div>
-                        <div>
-                            <label for="label">Thành tiền</label>
-
-                            <div class="form-group input-group" >
-                                <span class="input-group-addon">VND</span>
-                                <input type="text" name="ThanhTien" class="form-control" id="ThanhTien">
-                                <span class="input-group-addon">.00</span>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary updateValue">Update</button>
-                            <button type="button" class="btn btn-primary createValue">Save</button>
-
-                        </div>
-                    </div>
+               {!! Form::open(['class' => 'form-horizontal', 'method' => 'POST', 'route' => ['billdetail.update',$billdetail->id]]) !!}
+               <div>
+                <label for="label">ID</label>
+                <input type="text" name="id" class="form-control" id="id">
+            </div>
+            <div>
+                <label for="label">Mã phòng</label>
+                <!-- <input type="text" name="MaPhong" class="form-control" id="MaPhong"> -->
+                <select class="form-control" id="MaPhong" name="MaPhong">
+                    <option value="">Select</option>
+                    @foreach($tenPhong as $tp)
+                    <option value="{{ $tp->id }}">{{ $tp->TenPhong }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
+                <label for="label">Mã sử dụng dịch vụ</label>
+                <!-- <input type="text" name="MaSuDungDichVu" class="form-control" id="MaSuDungDichVu"> -->
+                <select class="form-control" id="MaSuDungDichVu" name="MaSuDungDichVu">
+                    <option value="">Select</option>
+                    @foreach($suDungDichVu as $sddv)
+                    <option value="{{ $sddv->id }}">{{ $sddv->id }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
+                <label for="label">Mã chính sách</label>
+                <!-- <input type="text" name="MaChinhSach" class="form-control" id="MaChinhSach"> -->
+                <select class="form-control" id="MaChinhSach" name="MaChinhSach">
+                    <option value="">Select</option>
+                    @foreach($chinhSach as $cs)
+                    <option value="{{ $cs->id }}">{{ $cs->ThoiGianQuyDinh }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
+                <label for="label">Phụ thu</label>
+                <input type="text" name="PhuThu" class="form-control" id="PhuThu">
+            </div>
+            <div>
+                <label for="label">Tiền phòng</label>
+                
+                <div class="form-group input-group" >
+                    <span class="input-group-addon">VND</span>
+                    <input type="text" name="TienPhong" class="form-control" id="TienPhong">
+                    <span class="input-group-addon">.00</span>
                 </div>
             </div>
+            <div>
+                <label for="label">Tiền dịch vụ</label>
+                
+                <div class="form-group input-group" >
+                    <span class="input-group-addon">VND</span>
+                    <input type="text" name="TienDichVu" class="form-control" id="TienDichVu">
+                    <span class="input-group-addon">.00</span>
+                </div>
+            </div>
+            <div>
+                <label for="label">Giảm giá khách hàng</label>
+                <input type="text" name="GiamGiaKhachHang" class="form-control" id="GiamGiaKhachHang">
+            </div>
+            <div>
+                <label for="label">Hình thức thanh toán</label>
+                <input type="text" name="HinhThucThanhToan" class="form-control" id="HinhThucThanhToan">
+            </div>
+            <div>
+                <label for="label">Số ngày</label>
+                <input type="text" name="SoNgay" class="form-control" id="SoNgay">
+            </div>
+            <div>
+                <label for="label">Thành tiền</label>
+                
+                <div class="form-group input-group" >
+                    <span class="input-group-addon">VND</span>
+                    <input type="text" name="ThanhTien" class="form-control" id="ThanhTien">
+                    <span class="input-group-addon">.00</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary updateValue">Update</button>
+                <button type="button" class="btn btn-primary createValue">Save</button>
+
+            </div>
+            {!! Form::close() !!}
         </div>
     </div>
 </div>
