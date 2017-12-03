@@ -122,10 +122,10 @@
 
                 $('.detailValue').click(function() {
                     var id = $(this).val();
-                    var MaKhachHang = $(this).parent().prev("td").prev("td").prev("td").prev("td").prev("td").text();
-                    var MaPhong = $(this).parent().prev("td").prev("td").prev("td").prev("td").text();
-                    var NgayDangKi = $(this).parent().prev("td").prev("td").prev("td").text();
-                    var NgayNhan = $(this).parent().prev("td").prev("td").text();
+                    var MaKhachHang = $(this).parent().prev("td").prev("td").prev("td").prev("td").text();
+                    var MaPhong = $(this).parent().prev("td").prev("td").prev("td").text();
+                    var NgayDangKi = $(this).parent().prev("td").prev("td").text();
+                    var NgayNhan = $(this).parent().prev("td").text();
                     $('#id').val(id);
                     $('#MaKhachHang').val(MaKhachHang);
                     $('#MaPhong').val(MaPhong);
@@ -140,10 +140,10 @@
 
                 $('.editValue').click(function() {
                     var id = $(this).val();
-                    var MaKhachHang = $(this).parent().prev("td").prev("td").prev("td").prev("td").text();
-                    var MaPhong = $(this).parent().prev("td").prev("td").prev("td").text();
-                    var NgayDangKi = $(this).parent().prev("td").prev("td").text();
-                    var NgayNhan = $(this).parent().prev("td").text();
+                    var MaKhachHang = $(this).parent().prev("td").prev("td").prev("td").prev("td").prev("td").text();
+                    var MaPhong = $(this).parent().prev("td").prev("td").prev("td").prev("td").text();
+                    var NgayDangKi = $(this).parent().prev("td").prev("td").prev("td").text();
+                    var NgayNhan = $(this).parent().prev("td").prev("td").text();
                     $('#id').val(id);
                     $('#MaKhachHang').val(MaKhachHang);
                     $('#MaPhong').val(MaPhong);

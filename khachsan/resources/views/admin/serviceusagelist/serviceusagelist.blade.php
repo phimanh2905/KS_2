@@ -26,7 +26,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Mã dịch vụ</th>
-                                    <th>Mã nhận phòng</th>
+                                    <th>Mã phòng</th>
                                     <th>Số lượng</th>
                                     <th>Xem chi tiết</th>
                                     <th>Sửa</th>
@@ -38,7 +38,7 @@
                                 <tr class="serviceusagelist{{$serviceusagelist->id}}" >
                                     <td>{{$serviceusagelist->id}}</td>
                                     <td>{{$serviceusagelist->MaDichVu}}</td>
-                                    <td>{{$serviceusagelist->MaNhanPhong}}</td>
+                                    <td>{{$serviceusagelist->MaPhong}}</td>
                                     <td>{{$serviceusagelist->SoLuong}}</td>
                                     <td>
                                         <button class="btn btn-info detailValue" data-toggle="modal" data-target="#myModal" value="{{$serviceusagelist->id}}""><i class="fa fa-eye"></i> Xem</button>
@@ -83,7 +83,7 @@
         $('.addValue').click(function() {
             $('#id').val('');
             $('#MaDichVu').val('');
-            $('#MaNhanPhong').val('');
+            $('#MaPhong').val('');
             $('#SoLuong').val('');
             $('#password').parent('div').show();
             $('#id').parent('div').hide();
@@ -93,9 +93,9 @@
         $('.createValue').click(function(e){
             e.preventDefault();
             var MaDichVu = $('#MaDichVu').val();
-            var MaNhanPhong = $('#MaNhanPhong').val();
+            var MaPhong = $('#MaPhong').val();
             var SoLuong = $('#SoLuong').val();
-            if(MaDichVu != '' && MaNhanPhong != '' && SoLuong != '') {
+            if(MaDichVu != '' && MaPhong != '' && SoLuong != '') {
                 $.ajax({
                     url : '/serviceusagelist',
                     dataType : 'json',
@@ -103,12 +103,12 @@
                     data : {
                         _token: $('input[name=_token]').val(),
                         MaDichVu : MaDichVu,
-                        MaNhanPhong : MaNhanPhong,
+                        MaPhong : MaPhong,
                         SoLuong : SoLuong
                     }
                 }).done(function(response) {
                     $('#myModal').modal('hide');
-                    // $('tbody tr').append("<tr class='serviceusagelist" + response.id + "' ><td>" + data.id + "</td><td>" + response.MaDichVu + "</td><td>" + response.MaNhanPhong + "</td><td>" + response.SoLuong + "</td><td></td><td><button class='btn btn-warning editValue' data-toggle = 'modal' data-target='#myModal' value ='" + response.id + "'><i class='fa fa-pencil-square-o'></i> Sửa</button></td><td><button type='submit' class='btn btn-danger deleteValue' value='" + response.id + "'><i class='fa fa-trash-o'></i> Xóa</button></td></tr>");
+                    // $('tbody tr').append("<tr class='serviceusagelist" + response.id + "' ><td>" + data.id + "</td><td>" + response.MaDichVu + "</td><td>" + response.MaPhong + "</td><td>" + response.SoLuong + "</td><td></td><td><button class='btn btn-warning editValue' data-toggle = 'modal' data-target='#myModal' value ='" + response.id + "'><i class='fa fa-pencil-square-o'></i> Sửa</button></td><td><button type='submit' class='btn btn-danger deleteValue' value='" + response.id + "'><i class='fa fa-trash-o'></i> Xóa</button></td></tr>");
                 });
             }
             history.go(0);
@@ -119,11 +119,11 @@
         $('.detailValue').click(function() {
             var id = $(this).val();
             var MaDichVu = $(this).parent().prev("td").prev("td").prev("td").text();
-            var MaNhanPhong = $(this).parent().prev("td").prev("td").text();
+            var MaPhong = $(this).parent().prev("td").prev("td").text();
             var SoLuong = $(this).parent().prev("td").text();
             $('#id').val(id);
             $('#MaDichVu').val(MaDichVu);
-            $('#MaNhanPhong').val(MaNhanPhong);
+            $('#MaPhong').val(MaPhong);
             $('#SoLuong').val(SoLuong);
             $('#id').parent('div').hide();
             $('.createValue').hide();
@@ -135,11 +135,11 @@
         $('.editValue').click(function() {
             var id = $(this).val();
             var MaDichVu = $(this).parent().prev("td").prev("td").prev("td").prev("td").text();
-            var MaNhanPhong = $(this).parent().prev("td").prev("td").prev("td").text();
+            var MaPhong = $(this).parent().prev("td").prev("td").prev("td").text();
             var SoLuong = $(this).parent().prev("td").prev("td").text();
             $('#id').val(id);
             $('#MaDichVu').val(MaDichVu);
-            $('#MaNhanPhong').val(MaNhanPhong);
+            $('#MaPhong').val(MaPhong);
             $('#SoLuong').val(SoLuong);
             $('#id').parent('div').hide();
             $('.createValue').hide();
@@ -148,10 +148,10 @@
         $('.updateValue').click(function(e) {
             e.preventDefault();
             var id = $('#id').val();
-            var MaNhanPhong = $('#MaNhanPhong').val();
+            var MaPhong = $('#MaPhong').val();
             var MaDichVu = $('#MaDichVu').val();
             var SoLuong = $('#SoLuong').val();
-            if(MaDichVu != '' && MaNhanPhong != '' && SoLuong != '') {
+            if(MaDichVu != '' && MaPhong != '' && SoLuong != '') {
                 $.ajax({
                     dataType : 'json',
                     type : 'PUT',
@@ -162,14 +162,14 @@
                         _token: $('input[name=_token]').val(),
                         id : id,
                         MaDichVu : MaDichVu,
-                        MaNhanPhong : MaNhanPhong,
+                        MaPhong : MaPhong,
                         SoLuong : SoLuong
                         
                     }
                 }).done(function(data) {
                    $('#myModal').modal('hide');
                    // $(".serviceusagelist"+id).replaceWith(
-                   //  ("<tr class='serviceusagelist" + data.id + "'><td>" + data.id + "</td><td>" + data.MaDichVu + "</td><td>" + data.MaNhanPhong + "</td><td>" + data.SoLuong + "</td><td><button class='btn btn-info detailValue' data-toggle = 'modal' data-target='#myModal' value ='" + data.id + "'><i class='fa fa-eye'></i> Xem</button></td><td><button class='btn btn-warning editValue' data-toggle = 'modal' data-target='#myModal' value ='" + data.id + "'><i class='fa fa-pencil-square-o'></i> Sửa</button></td><td><button type='submit' class='btn btn-danger deleteValue' value='" +data.id+ "'><i class='fa fa-trash-o'></i> Xóa</button></td></tr>")
+                   //  ("<tr class='serviceusagelist" + data.id + "'><td>" + data.id + "</td><td>" + data.MaDichVu + "</td><td>" + data.MaPhong + "</td><td>" + data.SoLuong + "</td><td><button class='btn btn-info detailValue' data-toggle = 'modal' data-target='#myModal' value ='" + data.id + "'><i class='fa fa-eye'></i> Xem</button></td><td><button class='btn btn-warning editValue' data-toggle = 'modal' data-target='#myModal' value ='" + data.id + "'><i class='fa fa-pencil-square-o'></i> Sửa</button></td><td><button type='submit' class='btn btn-danger deleteValue' value='" +data.id+ "'><i class='fa fa-trash-o'></i> Xóa</button></td></tr>")
                    //  );
                })
             }
@@ -236,12 +236,12 @@
                 </select>
             </div>
             <div>
-                <label for="label">Mã nhận phòng</label>
-                <!-- <input type="text" name="MaNhanPhong" class="form-control" id="MaNhanPhong"> -->
-                <select class="form-control" id="MaNhanPhong" name="MaNhanPhong">
+                <label for="label">Mã phòng</label>
+                <!-- <input type="text" name="MaPhong" class="form-control" id="MaPhong"> -->
+                <select class="form-control" id="MaPhong" name="MaPhong">
                     <option value="">Select</option>
                     @foreach($nhanPhong as $np)
-                    <option value="{{ $np->id }}">{{ $np->id }}</option>
+                    <option value="{{ $np->id }}">{{ $np->TenPhong }}</option>
                     @endforeach
                 </select>
             </div>

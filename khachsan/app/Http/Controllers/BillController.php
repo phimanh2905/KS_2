@@ -39,7 +39,7 @@ class BillController extends Controller
         $bill = new Bill();
         $bill->NhanVienLap = $request->NhanVienLap;
         $bill->MaKhachHang = $request->MaKhachHang;
-        $bill->MaNhanPhong = $request->MaNhanPhong;
+        $bill->MaPhong = $request->MaPhong;
         $bill->TongTien = $request->TongTien;
         $bill->NgayLap = $request->NgayLap;
         // $bill->TrangThai = $request->TrangThai;
@@ -81,7 +81,7 @@ class BillController extends Controller
        $bill = Bill::findOrFail($id);
        $bill->NhanVienLap = $request->NhanVienLap;
        $bill->MaKhachHang = $request->MaKhachHang;
-       $bill->MaNhanPhong = $request->MaNhanPhong;
+       $bill->MaPhong = $request->MaPhong;
        $bill->TongTien = $request->TongTien;
        $bill->NgayLap = $request->NgayLap;
         // $bill->TrangThai = $request->TrangThai;
@@ -105,7 +105,7 @@ class BillController extends Controller
     public function search(Request $req) {
         $result = '';
         $bills = Bill::where('NhanVienLap','like','%'.$req->key.'%')
-        ->orWhere('MaKhachHang','like','%'.$req->key.'%')->orWhere('MaNhanPhong','like','%'.$req->key.'%')->orWhere('TongTien','like','%'.$req->key.'%')->orWhere('NgayLap','like','%'.$req->key.'%')->get();
+        ->orWhere('MaKhachHang','like','%'.$req->key.'%')->orWhere('MaPhong','like','%'.$req->key.'%')->orWhere('TongTien','like','%'.$req->key.'%')->orWhere('NgayLap','like','%'.$req->key.'%')->get();
         $html = view('admin.bill.search',compact('bills'))->render();
         return response($html); 
     }

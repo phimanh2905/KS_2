@@ -44,7 +44,7 @@
                                 @foreach($billdetails as $billdetail)
                                 <tr class="billdetail{{$billdetail->id}}" >
                                     <td>{{$billdetail->id}}</td>
-                                    <td>{{$billdetail->phong->TenPhong}}</td>
+                                    <td>{{$billdetail->MaPhong}}</td>
                                     <td>{{$billdetail->MaSuDungDichVu}}</td>
                                     <td>{{$billdetail->MaChinhSach}}</td>
                                     <td>{{$billdetail->PhuThu}}</td>

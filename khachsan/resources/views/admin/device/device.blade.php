@@ -38,7 +38,7 @@
                                 <tr class="device{{$device->id}}">
                                     <td>{{$device->id}}</td>
                                     <td>{{$device->TenThietBi}}</td>
-                                    <td>{{$device->loaiPhong->TenLoaiPhong}}</td>
+                                    <td>{{$device->MaLoaiPhong}}</td>
                                     <td>{{$device->SoLuong}}</td>
                                     <td>
                                         <button class="btn btn-info detailValue" data-toggle="modal" data-target="#myModal" value="{{$device->id}}""><i class="fa fa-eye"></i> Xem</button>

@@ -39,8 +39,8 @@
                                 <tr class="room{{$room->id}}" >
                                     <td>{{$room->id}}</td>
                                     <td>{{$room->TenPhong}}</td>
-                                    <td>{{$room->loaiPhong->TenLoaiPhong}}</td>
-                                    <td>{{$room->loaiTinhTrang->TenLoaiTinhTrang}}</td>
+                                    <td>{{$room->MaLoaiPhong}}</td>
+                                    <td>{{$room->MaLoaiTinhTrangPhong}}</td>
                                     <td>{{$room->GhiChu}}</td>
                                     <td>
                                         <button class="btn btn-info detailValue" data-toggle="modal" data-target="#myModal" value="{{$room->id}}""><i class="fa fa-eye"></i> Xem</button>

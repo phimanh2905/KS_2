@@ -69,7 +69,7 @@ class AppServiceProvider extends ServiceProvider
 
 // combo ma nhan phong ( danh sach su dung dich vu)
         view()->composer('admin.serviceusagelist.serviceusagelist', function($view) {
-            $nhanPhong = Checkin::all();
+            $nhanPhong = Room::all();
             $view->with('nhanPhong', $nhanPhong);
         });
 
@@ -117,7 +117,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('admin.bill.bill', function($view) {
-            $nhanPhong = CheckIn::all();
+            $nhanPhong = Room::all();
             $view->with('nhanPhong', $nhanPhong);
         });
 

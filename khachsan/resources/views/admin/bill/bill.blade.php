@@ -27,7 +27,7 @@
                                     <th>ID</th>
                                     <th>Nhân viên lập</th>
                                     <th>Mã khách hàng</th>
-                                    <th>Mã nhận phòng</th>
+                                    <th>Mã phòng</th>
                                     <th>Tổng tiền</th>
                                     <th>Ngày lập</th>
                                     <th>Xem chi tiết</th>
@@ -40,8 +40,8 @@
                                 <tr class="bill{{$bill->id}}" >
                                     <td>{{$bill->id}}</td>
                                     <td>{{$bill->NhanVienLap}}</td>
-                                    <td>{{$bill->khachHang->TenKhachHang}}</td>
-                                    <td>{{$bill->MaNhanPhong}}</td>
+                                    <td>{{$bill->MaKhachHang}}</td>
+                                    <td>{{$bill->MaPhong}}</td>
                                     <td>{{$bill->TongTien}}</td>
                                     <td>{{$bill->NgayLap}}</td>
                                     <td>
@@ -85,7 +85,7 @@
             $('#id').val('');
             $('#NhanVienLap').val('');
             $('#MaKhachHang').val('');
-            $('#MaNhanPhong').val('');
+            $('#MaPhong').val('');
             $('#TongTien').val('');
             $('#NgayLap').val('');
             $('#password').parent('div').show();
@@ -97,10 +97,10 @@
             e.preventDefault();
             var NhanVienLap = $('#NhanVienLap').val();
             var MaKhachHang = $('#MaKhachHang').val();
-            var MaNhanPhong = $('#MaNhanPhong').val();
+            var MaPhong = $('#MaPhong').val();
             var TongTien = $('#TongTien').val();
             var NgayLap = $('#NgayLap').val();
-            if(NhanVienLap != '' && MaKhachHang != '' && MaNhanPhong != '' && TongTien != ''&& NgayLap != '') {
+            if(NhanVienLap != '' && MaKhachHang != '' && MaPhong != '' && TongTien != ''&& NgayLap != '') {
                 $.ajax({
                     url : '/bill',
                     dataType : 'json',
@@ -109,14 +109,14 @@
                         _token: $('input[name=_token]').val(),
                         NhanVienLap : NhanVienLap,
                         MaKhachHang : MaKhachHang,
-                        MaNhanPhong : MaNhanPhong,
+                        MaPhong : MaPhong,
                         TongTien : TongTien,
                         NgayLap : NgayLap
                     }
                 }).done(function(response) {
                     $('#myModal').modal('hide');
 
-                    // $('tbody tr').append("<tr class='bill" + response.id + "' ><td>" + data.id + "</td><td>" + response.NhanVienLap + "</td><td>" + response.MaKhachHang + "</td><td>" + response.MaNhanPhong + "</td><td>" + response.TongTien + "</td><td>" + response.NgayLap + "</td><td><button class='btn btn-warning editValue' data-toggle = 'modal' data-target='#myModal' value ='" + response.id + "'><i class='fa fa-pencil-square-o'></i> Sửa</button></td><td><button type='submit' class='btn btn-danger deleteValue' value='" + response.id + "'><i class='fa fa-trash-o'></i> Xóa</button></td></tr>");
+                    // $('tbody tr').append("<tr class='bill" + response.id + "' ><td>" + data.id + "</td><td>" + response.NhanVienLap + "</td><td>" + response.MaKhachHang + "</td><td>" + response.MaPhong + "</td><td>" + response.TongTien + "</td><td>" + response.NgayLap + "</td><td><button class='btn btn-warning editValue' data-toggle = 'modal' data-target='#myModal' value ='" + response.id + "'><i class='fa fa-pencil-square-o'></i> Sửa</button></td><td><button type='submit' class='btn btn-danger deleteValue' value='" + response.id + "'><i class='fa fa-trash-o'></i> Xóa</button></td></tr>");
                 });
             }
             history.go(0);
@@ -128,13 +128,13 @@
             var id = $(this).val();
             var NhanVienLap = $(this).parent().prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var MaKhachHang = $(this).parent().prev("td").prev("td").prev("td").prev("td").text();
-            var MaNhanPhong = $(this).parent().prev("td").prev("td").prev("td").text();
+            var MaPhong = $(this).parent().prev("td").prev("td").prev("td").text();
             var TongTien = $(this).parent().prev("td").prev("td").text();
             var NgayLap = $(this).parent().prev("td").text();
             $('#id').val(id);
             $('#NhanVienLap').val(NhanVienLap);
             $('#MaKhachHang').val(MaKhachHang);
-            $('#MaNhanPhong').val(MaNhanPhong);
+            $('#MaPhong').val(MaPhong);
             $('#TongTien').val(TongTien);
             $('#NgayLap').val(NgayLap);
             $('#id').parent('div').hide();
@@ -148,13 +148,13 @@
             var id = $(this).val();
             var NhanVienLap = $(this).parent().prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var MaKhachHang = $(this).parent().prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var MaNhanPhong = $(this).parent().prev("td").prev("td").prev("td").prev("td").text();
+            var MaPhong = $(this).parent().prev("td").prev("td").prev("td").prev("td").text();
             var TongTien = $(this).parent().prev("td").prev("td").prev("td").text();
             var NgayLap = $(this).parent().prev("td").prev("td").text();
             $('#id').val(id);
             $('#NhanVienLap').val(NhanVienLap);
             $('#MaKhachHang').val(MaKhachHang);
-            $('#MaNhanPhong').val(MaNhanPhong);
+            $('#MaPhong').val(MaPhong);
             $('#TongTien').val(TongTien);
             $('#NgayLap').val(NgayLap);
             $('#id').parent('div').hide();
@@ -166,10 +166,10 @@
             var id = $('#id').val();
             var MaKhachHang = $('#MaKhachHang').val();
             var NhanVienLap = $('#NhanVienLap').val();
-            var MaNhanPhong = $('#MaNhanPhong').val();
+            var MaPhong = $('#MaPhong').val();
             var TongTien = $('#TongTien').val();
             var NgayLap = $('#NgayLap').val();
-            if(NhanVienLap != '' && MaKhachHang != '' && MaNhanPhong != '' && TongTien != ''&& NgayLap != '') {
+            if(NhanVienLap != '' && MaKhachHang != '' && MaPhong != '' && TongTien != ''&& NgayLap != '') {
                 $.ajax({
                     dataType : 'json',
                     type : 'PUT',
@@ -181,7 +181,7 @@
                         id : id,
                         NhanVienLap : NhanVienLap,
                         MaKhachHang : MaKhachHang,
-                        MaNhanPhong : MaNhanPhong,
+                        MaPhong : MaPhong,
                         TongTien : TongTien,
                         NgayLap : NgayLap
                         
@@ -189,7 +189,7 @@
                 }).done(function(data) {
                  $('#myModal').modal('hide');
                  // $(".bill"+id).replaceWith(
-                 //    ("<tr class='bill" + data.id + "'><td>" + data.id + "</td><td>" + data.NhanVienLap + "</td><td>" + data.MaKhachHang + "</td><td>" + data.MaNhanPhong + "</td><td>" + data.TongTien + "</td><td>" + data.NgayLap + "</td> <td><button class='btn btn-info detailValue' data-toggle = 'modal' data-target='#myModal' value ='" + data.id + "'><i class='fa fa-eye'></i> Xem</button></td>  <td><button class='btn btn-warning editValue' data-toggle = 'modal' data-target='#myModal' value ='" + data.id + "'><i class='fa fa-pencil-square-o'></i> Sửa</button></td><td><button type='submit' class='btn btn-danger deleteValue' value='" +data.id+ "'><i class='fa fa-trash-o'></i> Xóa</button></td></tr>")
+                 //    ("<tr class='bill" + data.id + "'><td>" + data.id + "</td><td>" + data.NhanVienLap + "</td><td>" + data.MaKhachHang + "</td><td>" + data.MaPhong + "</td><td>" + data.TongTien + "</td><td>" + data.NgayLap + "</td> <td><button class='btn btn-info detailValue' data-toggle = 'modal' data-target='#myModal' value ='" + data.id + "'><i class='fa fa-eye'></i> Xem</button></td>  <td><button class='btn btn-warning editValue' data-toggle = 'modal' data-target='#myModal' value ='" + data.id + "'><i class='fa fa-pencil-square-o'></i> Sửa</button></td><td><button type='submit' class='btn btn-danger deleteValue' value='" +data.id+ "'><i class='fa fa-trash-o'></i> Xóa</button></td></tr>")
                  //    );
              })
             }
@@ -232,7 +232,7 @@
         });
     })
 </script>
-<div class="modal fade" id="myModal" tabindex="-1" MaNhanPhong="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" MaPhong="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -266,12 +266,12 @@
                 </select>
             </div>
             <div>
-                <label for="label">Mã nhận phòng</label>
-                <!-- <input type="text" name="MaNhanPhong" class="form-control" id="MaNhanPhong"> -->
-                <select class="form-control" id="MaNhanPhong" name="MaNhanPhong">
+                <label for="label">Mã phòng</label>
+                <!-- <input type="text" name="MaPhong" class="form-control" id="MaPhong"> -->
+                <select class="form-control" id="MaPhong" name="MaPhong">
                     <option value="">Select</option>
                     @foreach($nhanPhong as $np)
-                    <option value="{{ $np->id }}">{{ $np->id }}</option>
+                    <option value="{{ $np->id }}">{{ $np->TenPhong }}</option>
                     @endforeach
                 </select>
             </div>

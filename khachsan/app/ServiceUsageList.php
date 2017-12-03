@@ -11,11 +11,11 @@ class ServiceUsageList extends Model
 {
     //
     protected $table = "danh_sach_su_dung_dich_vus";
-    protected $fillable = ['MaDichVu','MaNhanPhong','SoLuong'];
+    protected $fillable = ['MaDichVu','MaPhong','SoLuong'];
     // protected $hidden = ['',''];
 
     public function phieuNhanPhong() {
-        return $this->belongsTo(CheckIn::class, 'MaNhanPhong');
+        return $this->belongsTo(CheckIn::class, 'MaPhong');
     }
     public function chiTietHoaDons() {
         return $this->hasMany(BillDetail::class, 'MaSuDungDichVu');

@@ -38,7 +38,7 @@ class ServiceusagelistController extends Controller
     {
         $serviceusagelist = new ServiceUsageList();
         $serviceusagelist->MaDichVu = $request->MaDichVu;
-        $serviceusagelist->MaNhanPhong = $request->MaNhanPhong;
+        $serviceusagelist->MaPhong = $request->MaPhong;
         $serviceusagelist->SoLuong = $request->SoLuong;
         $serviceusagelist->save();
         return response()->json($serviceusagelist);
@@ -77,7 +77,7 @@ class ServiceusagelistController extends Controller
     {
         $serviceusagelist = ServiceUsageList::findOrFail($id);
         $serviceusagelist->MaDichVu = $request->MaDichVu;
-        $serviceusagelist->MaNhanPhong = $request->MaNhanPhong;
+        $serviceusagelist->MaPhong = $request->MaPhong;
         $serviceusagelist->SoLuong = $request->SoLuong;
         
         $serviceusagelist->save();
@@ -100,7 +100,7 @@ class ServiceusagelistController extends Controller
     public function search(Request $req) {
         $result = '';
         $serviceusagelists = ServiceUsageList::where('MaDichVu','like','%'.$req->key.'%')
-        ->orWhere('MaNhanPhong','like','%'.$req->key.'%')->orWhere('SoLuong','like','%'.$req->key.'%')->get();
+        ->orWhere('MaPhong','like','%'.$req->key.'%')->orWhere('SoLuong','like','%'.$req->key.'%')->get();
         $html = view('admin.serviceusagelist.search',compact('serviceusagelists'))->render();
         return response($html); 
     }
