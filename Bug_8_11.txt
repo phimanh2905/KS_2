@@ -1,0 +1,20 @@
+1. edit 
+- chua nhan dung cac thuoc tinh
+checkoutpolicy
+typeofservice
+
+- thua id
+serviceusagelist
+
+2. add chua dc
+typeofservice
+admin
+
+3. edit thua 1 cot
+customer
+
+4. edit
+an id
+
+5. edit chua du du lieu
+billdetail
